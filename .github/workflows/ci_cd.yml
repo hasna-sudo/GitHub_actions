@@ -12,7 +12,7 @@ on:
 jobs:
   # JOB 1 : Tests
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       # 1. Récupère le code du dépôt sur le runner
       - name: Récupérer le code
@@ -42,7 +42,7 @@ jobs:
   # JOB 2 : Build Docker (uniquement si "test" réussit)
   build:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Récupérer le code
         uses: actions/checkout@v4
